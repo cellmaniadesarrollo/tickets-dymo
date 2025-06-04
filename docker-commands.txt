@@ -94,3 +94,5 @@
 
 🔷 Pro tip 💡
 🟢 Incluye el entorno (dev, prod, test) en el nombre del contenedor para identificarlo fácilmente
+git config user.name "cellmaniadesarrollo"
+git config user.email "christians9210023.tcm@gmail.com"
