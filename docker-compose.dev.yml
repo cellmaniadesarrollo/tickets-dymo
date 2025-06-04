@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: dymoetiquetas-dev
+    ports:
+      - "5001:5001"  # Mapea puerto local al del contenedor
+    volumes:
+      - .:/usr/src/app               # Monta el código fuente en el contenedor
+      - /usr/src/app/node_modules   # Evita sobrescribir node_modules dentro del contenedor
+    command: npm run dev            # Ejecuta el script de desarrollo con nodemon
