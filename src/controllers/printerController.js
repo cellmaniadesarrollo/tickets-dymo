@@ -7,15 +7,16 @@ printerController.index = async (req, res) => {
   }; 
 printerController.imprimirEtiquetaDinamica = async (req, res) => {
     try { 
-    const printResult = await labelModel.printLabel(req.query ); 
-    if (printResult) {
-        res.sendFile(__dirname + "/views/exito.html");
-    } else {
-        res.sendFile(__dirname + "/views/error.html");
-    }
+      console.log(req.body)
+        const printResult = await labelModel.printLabel(req.body); 
+        if (printResult) {
+            res.sendStatus(200); // Éxito
+        } else {
+            res.sendStatus(500); // Error en impresión
+        }
     } catch (error) {   
-      console.log(error)
-      res.sendFile(__dirname + "/views/error.html");
+        console.log(error);
+        res.sendStatus(500); // Error general
     }
 }; 
 
